@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣水庫即時水情</title>
+    <meta name="description" content="台灣水庫即時水情-視覺化, 即時蓄水量、水位變化">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-water mr-2"></i>台灣水庫監測</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="header-section">
+            <h1 class="text-center">台灣水庫即時水情</h1>
+            <p class="text-center subtitle">即時監測台灣主要水庫蓄水情況</p>
+            <div class="stats-bar">
+                <div class="update-time">
+                    <i class="far fa-clock"></i>
+                    <span id="lastUpdate">更新時間: 載入中...</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="region-nav">
+            <button class="region-btn" data-region="north">北部水庫</button>
+            <button class="region-btn" data-region="central">中部水庫</button>
+            <button class="region-btn" data-region="south">南部水庫</button>
+        </div>
+        
+        <div class="notes">
+            <ul>
+                <li>資料來源：<a href="https://fhy.wra.gov.tw/" target="_blank">經濟部水利署</a></li>
+                <li>即時水情資料係自記儀器自動產生，未經人工完整檢驗，僅提供參考。</li>
+                <li class="text-danger">水位顏色說明：<span class="level-low">紅色</span> - 低於20%；<span class="level-medium">黃色</span> - 20%~50%；<span class="level-high">藍色</span> - 高於50%</li>
+            </ul>
+        </div>
+        
+        <div id="reservoirs" class="row reservoir-container"></div>
+    </div>
+
+    <footer class="footer mt-5">
+        <div class="container text-center">
+            <p>資料來源：經濟部水利署 | 更新頻率：每5分鐘</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="src/data/reservoirs.js"></script>
+    <script src="assets/js/index.js"></script>
+</body>
+</html>

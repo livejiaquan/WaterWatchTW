@@ -1,0 +1,538 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+:root {
+    --primary-color: #2196F3;
+    --secondary-color: #1976D2;
+    --background-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --level-high: #2196F3;
+    --level-medium: #FFC107;
+    --level-low: #FF5722;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* Navbar 樣式 */
+.navbar {
+    background-color: #1a2a6c;
+    background-image: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: white;
+}
+
+/* 頁面標題區域 */
+.header-section {
+    padding: 3rem 0 1rem 0;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+/* 狀態欄 */
+.stats-bar {
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.update-time {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.update-time i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+/* 分區導航 */
+.region-nav {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.region-btn {
+    background-color: var(--card-bg);
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    color: var(--primary-color);
+    padding: 0.5rem 1.5rem;
+    margin: 0 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    outline: none;
+}
+
+.region-btn:hover, .region-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* 說明文字 */
+.notes {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.notes ul {
+    padding-left: 1.5rem;
+    margin-bottom: 0;
+}
+
+.notes li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.notes a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.level-low {
+    color: var(--level-low);
+    font-weight: 500;
+}
+
+.level-medium {
+    color: var(--level-medium);
+    font-weight: 500;
+}
+
+.level-high {
+    color: var(--level-high);
+    font-weight: 500;
+}
+
+/* 水庫容器樣式 */
+.reservoir-container {
+    margin-top: 2rem;
+}
+
+/* 卡片樣式 - 完全重新設計 */
+.card {
+    background: #ffffff;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card-body {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 水庫名稱容器 */
+.card-header {
+    padding: 0.8rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+/* 水庫名稱 */
+.reservoir-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reservoir-name i {
+    margin-right: 0.5rem;
+    color: #666;
+}
+
+/* 水位圓形容器 */
+.percentage-container {
+    padding: 1.2rem 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    min-height: 170px;
+    position: relative;
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    background: #f9f9f9;
+    flex-shrink: 0;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.water-level {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--level-high);
+    transition: height 0.5s ease;
+}
+
+.percentage-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+    text-shadow: 0 0 3px rgba(255,255,255,0.5);
+}
+
+/* 信息區域 */
+.info-area {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* 每一行信息 */
+.info-line {
+    display: flex;
+    align-items: flex-start;
+    padding: 0.7rem 0;
+    overflow: visible;
+    width: 100%;
+    border-bottom: none;
+    margin-bottom: 0.3rem;
+}
+
+.info-line:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* 左側圖標 */
+.line-icon {
+    width: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    margin-right: 4px;
+}
+
+.line-icon i {
+    color: #2196F3;
+    font-size: 1rem;
+}
+
+/* 信息標籤 */
+.line-label {
+    width: 85px;
+    flex-shrink: 0;
+    color: #666;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+}
+
+/* 信息值 */
+.line-value {
+    flex: 1;
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: 500;
+    word-break: break-word;
+    overflow: visible;
+    min-width: 0;
+    text-align: left;
+    padding-left: 0;
+}
+
+/* 水位顏色 */
+.level-high {
+    background-color: var(--level-high);
+}
+
+.level-medium {
+    background-color: var(--level-medium);
+}
+
+.level-low {
+    background-color: var(--level-low);
+}
+
+/* 頁尾樣式 */
+.footer {
+    background-color: #f1f1f1;
+    padding: 1.5rem 0;
+    color: var(--text-secondary);
+    margin-top: 3rem;
+    font-size: 0.9rem;
+}
+
+/* 響應式設計 */
+@media (min-width: 1400px) {
+    .percentage-container {
+        min-height: 180px;
+    }
+    
+    .circle {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .percentage-text {
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .col-xl-2 {
+        flex: 0 0 16.666667%;
+        max-width: 16.666667%;
+    }
+    
+    .percentage-container {
+        min-height: 160px;
+        padding: 1rem 0.5rem;
+    }
+    
+    .circle {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .percentage-text {
+        font-size: 2rem;
+    }
+    
+    .info-area {
+        padding: 1rem 0.8rem;
+    }
+    
+    .info-line {
+        padding: 0.4rem 0;
+        margin-bottom: 0.2rem;
+    }
+    
+    /* 縮小特定尺寸下的文字大小 */
+    .line-label {
+        width: 78px;
+        font-size: 0.8rem;
+        margin-right: 0.3rem;
+    }
+    
+    .line-value {
+        font-size: 0.8rem;
+    }
+    
+    .line-icon {
+        width: 20px;
+        margin-right: 2px;
+    }
+    
+    .line-icon i {
+        font-size: 0.9rem;
+    }
+    
+    .reservoir-name {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-lg-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
+@media (max-width: 992px) {
+    .circle {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .percentage-text {
+        font-size: 2.5rem;
+    }
+    
+    .percentage-container {
+        min-height: 200px;
+    }
+    
+    .line-label {
+        width: 95px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .reservoir-name {
+        font-size: 1.2rem;
+    }
+    
+    .percentage-text {
+        font-size: 2rem;
+    }
+    
+    .region-nav {
+        flex-wrap: wrap;
+    }
+    
+    .region-btn {
+        margin-bottom: 0.5rem;
+    }
+    
+    .circle {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .percentage-container {
+        min-height: 150px;
+        padding: 1rem;
+    }
+    
+    .line-label {
+        width: 85px;
+        font-size: 0.85rem;
+        margin-right: 0.5rem;
+    }
+    
+    .line-value {
+        font-size: 0.85rem;
+    }
+    
+    .info-line {
+        margin-bottom: 0.3rem;
+        padding: 0.5rem 0;
+    }
+    
+    .info-area {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        height: 100%;
+    }
+    
+    .circle {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .percentage-container {
+        min-height: 140px;
+        padding: 0.8rem;
+    }
+    
+    .percentage-text {
+        font-size: 1.5rem;
+    }
+    
+    .info-line {
+        padding: 0.4rem 0;
+        margin-bottom: 0.2rem;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+    
+    .line-icon {
+        width: 18px;
+    }
+    
+    .line-icon i {
+        font-size: 0.9rem;
+    }
+    
+    .line-label {
+        width: 80px;
+        font-size: 0.8rem;
+        margin-right: 0.4rem;
+    }
+    
+    .line-value {
+        font-size: 0.8rem;
+        width: auto;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        min-width: 0;
+    }
+    
+    .info-area {
+        padding: 0.8rem;
+    }
+    
+    /* 特別針對時間顯示的優化 */
+    .info-line:last-child .line-value {
+        font-size: 0.75rem;
+        width: auto;
+        text-align: left;
+    }
+    
+    /* 針對蓄水量的特別處理 */
+    .info-line:first-child .line-value {
+        font-size: 0.75rem;
+        text-align: left;
+    }
+} 
