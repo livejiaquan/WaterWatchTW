@@ -67,8 +67,8 @@ Issues and Pull Requests are welcome to help improve this project.
 
 ## 聯絡方式 Contact
 
-- 作者 (Author): JiaQuan
-- Email: jiaquan@example.com
+- 作者 (Author): LimJiaQuan
+- Email: livejiaquan@gmail.com
 - GitHub: [livejiaquan](https://github.com/livejiaquan)
 
 # OS generated files
